@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Jakarta EE 9 AJAX</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        Name : <h:inputText value="#{ajaxBean.name}" id="name"/> <br/>
+        <h:commandButton actionListener="#{ajaxBean.doGreeting()}" value="Greeting">
+            <f:ajax execute="name" render="message" />
+        </h:commandButton><br/>
+        <h:panelGroup id="message">
+            <h:outputText value="#{ajaxBean.greeting}" />
+        </h:panelGroup>
+        #{ajaxBean.now}
+    </h:form>
+</h:body>
+
+</html>
